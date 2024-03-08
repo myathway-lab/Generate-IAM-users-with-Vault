@@ -311,7 +311,7 @@ max_lease_ttl        768h
 
 **To note** <br>
 
-- Tuned lease time will not update on current grenrated Leases.
+- Tuned lease time will not update on current gerenrated Leases.
 - It will only effect on upcoming leases.
 - But if we renew the leases that was generated before tuned, it will use new tuned TTL.
 
