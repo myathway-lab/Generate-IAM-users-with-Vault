@@ -5,16 +5,15 @@
 Our goal on this lab is to provide EC2FullAccess access to our vendors engineer.  <br>
 Access Period is just 5 days.  <br>
 But in this lab, we will simulate it just 5min of lease time.  <br>
-All the access will be expired after 5 min. 
-
+All the access must be expired after 5 min. 
+In case if we don't users to access that EC2, we need to revoke the access. 
+In some case, we will extend the access period. 
 <br>
 
-And of course, we will test how to revoke/renew of those access using Vault. 
+As per the requirement, we will use Vault to create IAM users with EC2 Full permission. 
+Vault can revoke, renew the credentials.
 
 <br>
-
-Note - Make sure to delete all the access key & secrets after this lab. 
-
 
 ## Requirements <br>
 
@@ -25,6 +24,8 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 ```
+
+Note - Make sure to delete all the access key & secrets after this lab. 
 
 <br>
 
@@ -287,10 +288,34 @@ agrant@kindcluster-box:~$ aws ec2 terminate-instances --instance-ids i-0b0ffacae
 ![image](https://github.com/myathway-lab/Generate-IAM-users-with-Vault/assets/157335804/223d1c05-f2dc-439e-a264-88c4fb6aa72e)
 
   <br>
+
   
-  **7) Rotate the Vault-Root Cretential**
+**7) Tune Lease duration**
+
+- We can extend TTL lease time for whole secret engine path.
   
-  - We
+```yaml
+/ $ vault secrets tune -default-lease-ttl=10m /aws-iam-generate
+Success! Tuned the secrets engine at: aws-iam-generate/
+/ $ 
+/ $ vault read sys/mounts/aws-iam-generate/tune
+Key                  Value
+---                  -----
+default_lease_ttl    10m
+description          n/a
+force_no_cache       false
+max_lease_ttl        768h
+```
+
+<br> 
+
+**To note** <br>
+
+- Tuned lease time will not update on current grenrated Leases.
+- It will only effect on upcoming leases.
+- But if we renew the leases that was generated before tuned, it will use new tuned TTL.
+
+
 
 
 
