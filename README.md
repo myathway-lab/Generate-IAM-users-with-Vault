@@ -6,8 +6,8 @@ Our goal on this lab is to provide EC2FullAccess access to our vendors.  <br>
 Access Period is just 5 days.  <br>
 But in this lab, we will simulate it just 5min of lease time.  <br>
 All the access must be expired after 5 min. 
-In case if we don't users to access that EC2, we need to revoke the access. 
-In some case, we will extend the access period. 
+If we don't users to access EC2, we may need to revoke the access.  <br>
+In some case, we may need to extend the access period. 
 <br>
 
 As per the requirement, we will use Vault to create IAM users with EC2 Full permission. 
