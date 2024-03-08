@@ -1,6 +1,6 @@
-# Generate-IAM-users-with-Vault
+## Generate-IAM-users-with-Vault
 
-## Summary <br>
+### Summary <br>
 
 Our goal on this lab is to provide EC2FullAccess access to our vendors.  <br>
 Access Period is just 5 days.  <br>
@@ -15,7 +15,7 @@ Vault can revoke, renew the credentials.
 
 <br>
 
-## Requirements <br>
+### Requirements <br>
 
 - IAM user which has privileges to create IAM users & assign IAM permissions. 
 - Install AWS CLI for verification purpose. 
@@ -29,7 +29,7 @@ Note - Make sure to delete all the access key & secrets after this lab.
 
 <br>
 
-## Steps to follow <br>
+### Steps to follow <br>
 
 1) Install vault using helm & Setup a Vault cluster on K8s. Refer below link.
 2) Authenticate with AWS
