@@ -2,7 +2,7 @@
 
 ## Summary <br>
 
-Our goal on this lab is to provide EC2FullAccess access to our vendors engineer.  <br>
+Our goal on this lab is to provide EC2FullAccess access to our vendors.  <br>
 Access Period is just 5 days.  <br>
 But in this lab, we will simulate it just 5min of lease time.  <br>
 All the access must be expired after 5 min. 
